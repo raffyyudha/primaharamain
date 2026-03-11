@@ -55,7 +55,6 @@ export function Footer() {
             <h4 className="text-lg font-bold mb-6 text-white">Layanan Kami</h4>
             <ul className="space-y-3 text-gray-400">
               <li><Link href="#paket" className="hover:text-gold transition-colors">Umroh</Link></li>
-              <li><Link href="#paket" className="hover:text-gold transition-colors">Umroh Plus Turki</Link></li>
               <li><Link href="#paket" className="hover:text-gold transition-colors">Tour Aqsa</Link></li>
             </ul>
           </div>

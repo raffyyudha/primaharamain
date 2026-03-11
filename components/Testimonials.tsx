@@ -12,8 +12,8 @@ const testimonials = [
   },
   {
     name: "Bpk. Ahmad Fauzi & Keluarga",
-    role: "Jamaah Umroh Plus Turki",
-    text: "Alhamdulillah, perjalanan ibadah sekaligus liburan keluarga yang sangat berkesan. Hotelnya dekat sekali dengan masjid, makanannya cocok di lidah orang Indonesia. Jadwal berangkatnya juga tepat waktu seperti yang dijanjikan.",
+    role: "Jamaah Umrah",
+    text: "Alhamdulillah, perjalanan ibadah yang sangat berkesan. Hotelnya dekat sekali dengan masjid, makanannya cocok di lidah orang Indonesia. Jadwal berangkatnya juga tepat waktu seperti yang dijanjikan.",
     rating: 5
   },
   {

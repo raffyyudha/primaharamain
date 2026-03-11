@@ -2,35 +2,31 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
 
 const packages = [
   {
     title: "Umrah Khusyuk",
     duration: "9 Hari",
-    price: "25",
+    priceDisplay: "Rp 25 Jt",
     image: "/images/kaaba_hero.avif",
-    hotelMakkah: "Hotel Bintang 4–5 dekat Masjidil Haram",
-    hotelMadinah: "Hotel Bintang 4–5 dekat Masjid Nabawi",
-    pesawat: "Saudia Airlines / Oman Airlines",
+    details: [
+      { label: "Makkah", value: "Hotel Bintang 4–5 dekat Masjidil Haram" },
+      { label: "Madinah", value: "Hotel Bintang 4–5 dekat Masjid Nabawi" },
+      { label: "Maskapai", value: "Saudia Airlines / Oman Airlines" },
+    ]
   },
   {
-    title: "Umroh Plus Turki",
-    duration: "12 Hari",
-    price: "35",
-    image: "/images/turkey_mosque.avif",
-    hotelMakkah: "Hotel Bintang 5 dekat Masjidil Haram",
-    hotelMadinah: "Hotel Bintang 5 dekat Masjid Nabawi",
-    pesawat: "Turkish Airlines",
-  },
-  {
-    title: "Tour Aqsa",
+    title: "Tur Al Aqsa (Afiliasi Santriani Wisata)",
     duration: "10 Hari",
-    price: "38",
-    image: "/images/nabawi_umbrellas.avif",
-    hotelMakkah: "Hotel Bintang 5 dekat Masjidil Haram",
-    hotelMadinah: "Hotel Bintang 5 dekat Masjid Nabawi",
-    pesawat: "Saudia Airlines",
+    priceDisplay: "$2,700",
+    image: "/images/al_aqsa.avif",
+    details: [
+      { label: "Wadi Rum", value: "Oasis Camp" },
+      { label: "Dead Sea", value: "Grand Est. Dead Sea Hotel" },
+      { label: "Jerusalem", value: "Holy Land Hotel" },
+      { label: "Taba", value: "Strand Hotel" },
+      { label: "Cairo", value: "Hilton Grand Nile Hotel" },
+    ]
   }
 ];
 
@@ -51,7 +47,7 @@ export function FeaturedPackage() {
               <span className="micro-label text-text-light">Koleksi Perjalanan</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-serif leading-[1.1] tracking-tight text-primary">
-              Pilihan <span className="italic text-gold font-light">Paket Umroh</span>
+              Pilihan <span className="italic text-gold font-light">Paket Unggulan</span>
             </h2>
           </motion.div>
 
@@ -62,12 +58,12 @@ export function FeaturedPackage() {
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className="text-text-light font-light max-w-md leading-relaxed">
-              Setiap paket dirancang dengan teliti untuk memberikan kenyamanan maksimal selama Anda beribadah di Tanah Suci.
+              Setiap paket dirancang dengan teliti untuk memberikan kenyamanan maksimal selama Anda beribadah di Tanah Suci dan berziarah.
             </p>
           </motion.div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
@@ -92,7 +88,7 @@ export function FeaturedPackage() {
                   </div>
                   <div className="text-white text-right">
                     <span className="block text-sm font-light mb-1">Mulai dari</span>
-                    <span className="text-2xl font-serif">Rp {pkg.price} <span className="text-sm font-sans">Jt</span></span>
+                    <span className="text-2xl font-serif">{pkg.priceDisplay}</span>
                   </div>
                 </div>
               </div>
@@ -101,18 +97,12 @@ export function FeaturedPackage() {
                 <h3 className="text-2xl font-serif text-primary mb-6 group-hover:text-gold transition-colors duration-300">{pkg.title}</h3>
 
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center hairline-b pb-4">
-                    <span className="text-sm font-light text-text-light">Makkah</span>
-                    <span className="text-sm font-medium text-primary text-right">{pkg.hotelMakkah}</span>
-                  </div>
-                  <div className="flex justify-between items-center hairline-b pb-4">
-                    <span className="text-sm font-light text-text-light">Madinah</span>
-                    <span className="text-sm font-medium text-primary text-right">{pkg.hotelMadinah}</span>
-                  </div>
-                  <div className="flex justify-between items-center hairline-b pb-4">
-                    <span className="text-sm font-light text-text-light">Maskapai</span>
-                    <span className="text-sm font-medium text-primary text-right">{pkg.pesawat}</span>
-                  </div>
+                  {pkg.details.map((detail, idx) => (
+                    <div key={idx} className="flex justify-between items-center hairline-b pb-4">
+                      <span className="text-sm font-light text-text-light min-w-[30%]">{detail.label}</span>
+                      <span className="text-sm font-medium text-primary text-right">{detail.value}</span>
+                    </div>
+                  ))}
                 </div>
 
                 <a
